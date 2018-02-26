@@ -6,11 +6,15 @@ import './App.css';
 import SearchBar from '../components/SearchBar';
 import CharactersGrid from '../components/CharactersGrid';
 
+import * as appActions from '../actions/app';
+
 const mapStateToProps = state => ({
   characters: state.characters,
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  searchCharacter: value => dispatch(appActions.searchCharacter(value)),
+});
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +25,8 @@ class App extends Component {
   }
 
   handleQueryChange(event) {
-    console.log(event.target.value)
+    const value = event.target.value;
+    value && this.props.searchCharacter(value);
   }
 
   handleToggleBookmark(id) {
