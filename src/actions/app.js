@@ -14,3 +14,8 @@ export const catchError = error => ({
   type: appTypes.SEARCH_RESULTS_ERRORED,
   payload: { error },
 });
+
+export const toggleCharacterBookmark = id => ({
+  type: appTypes.CHARACTER_BOOKMARK,
+  payload: { id },
+});
