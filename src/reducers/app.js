@@ -25,7 +25,7 @@ export default (state = defaultState, action) => {
           ...state.characters,
           byId: {
             ...state.characters.byId,
-            ...action.payload.result.response.data.results.reduce((a, c) => ({
+            ...action.payload.data.results.reduce((a, c) => ({
               ...a,
               [c.id]: {
                 id: c.id,
@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
               },
             }), {}),
           },
-          search: action.payload.result.response.data.results.map(c => c.id),
+          search: action.payload.data.results.map(c => c.id),
         }
       });
     case appTypes.SEARCH_RESULTS_ERRORED:
