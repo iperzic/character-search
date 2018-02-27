@@ -10,6 +10,8 @@ import * as appActions from '../actions/app';
 
 const mapStateToProps = state => ({
   characters: state.characters,
+  searchValue: state.searchValue,
+  error: state.error,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -36,8 +38,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar onQueryChange={this.handleQueryChange} />
-        <CharactersGrid characters={this.props.characters} onToggleBookmark={this.handleToggleBookmark}/>
+        {!this.props.error && <SearchBar onQueryChange={this.handleQueryChange} />}
+        {!this.props.error && <CharactersGrid characters={this.props.characters} onToggleBookmark={this.handleToggleBookmark}/>}
+        {this.props.error && 'An error has occurred'}
       </div>
     );
   }
