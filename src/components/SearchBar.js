@@ -5,7 +5,12 @@ import './SearchBar.css';
 
 const SearchBar = ({ onQueryChange }) => (
   <div className="SearchBar">
-    <input type="search" placeholder="Search Characters" onChange={onQueryChange} />
+    <input
+      className="SearchBar__input"
+      type="search"
+      placeholder="Search Characters"
+      onChange={onQueryChange}
+    />
   </div>
 );
 
