@@ -5,9 +5,14 @@ import './GridCharacter.css';
 
 const GridCharacter = ({ name, image, isBookmark, onBookmarkClick }) => (
   <div className="GridCharacter">
-    <div className="GridCharacter__image">{image}</div>
-    <div className="GridCharacter__name"><b>{name}</b></div>
-    <div className="GridCharacter__bookmark" onClick={onBookmarkClick}>{isBookmark.toString()}</div>
+    <img className="GridCharacter__image" src={image} alt={name} />
+    <h2 className="GridCharacter__name" title={name}>{name}</h2>
+    <span
+      className={isBookmark ?
+        'GridCharacter__bookmark bookmark--selected' :
+        'GridCharacter__bookmark bookmark--not-selected'}
+      onClick={onBookmarkClick}
+    />
   </div>
 );
 
