@@ -9,7 +9,7 @@ export const searchCharacterEpic = (actions$) =>
   actions$.ofType(appTypes.SEARCH_VALUE_CHANGED)
     .debounceTime(500)
     .switchMap(action =>
-      _if(() => action.payload.value, ajax(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${action.payload.value}&orderBy=name&apikey=1ce341e7e5ba09cd56cacb4b3ca1b9ba`)
+      _if(() => action.payload.value, ajax.getJSON(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${action.payload.value}&orderBy=name&apikey=1ce341e7e5ba09cd56cacb4b3ca1b9ba`)
         .map(appActions.returnResult)
         .catch(appActions.catchError))
     );
