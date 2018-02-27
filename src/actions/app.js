@@ -10,6 +10,7 @@ export const returnResult = result => ({
   payload: { result },
 });
 
-export const catchError = value => ({
+export const catchError = error => ({
   type: appTypes.SEARCH_RESULTS_ERRORED,
+  payload: { error },
 });
