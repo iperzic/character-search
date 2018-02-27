@@ -17,8 +17,8 @@ const mapStateToProps = state => ({
     ...state.characters.byId[c],
     isBookmark: true,
   })),
-  searchValue: state.searchValue,
-  error: state.error,
+  searchValue: state.app.searchValue,
+  error: state.app.error,
 });
 
 const mapDispatchToProps = dispatch => ({
