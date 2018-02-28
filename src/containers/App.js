@@ -54,15 +54,17 @@ class App extends Component {
   }
 
   render() {
+    const isLoading = this.props.loading;
+    const shouldPaginationDisplay = this.props.searchValue && !isLoading;
     return (
       <div className="App">
-        {this.props.loading && <Loading />}
+        {isLoading && <Loading />}
         <SearchBar onQueryChange={this.handleQueryChange} />
-        <CharactersGrid
+        {!isLoading && <CharactersGrid
           characters={this.props.searchValue ? this.props.characters : this.props.bookmarks}
           onToggleBookmark={this.handleToggleBookmark}
-        />
-        {this.props.searchValue && <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />}
+        />}
+        {shouldPaginationDisplay && <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />}
       </div>
     );
   }

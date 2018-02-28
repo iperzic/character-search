@@ -8,10 +8,6 @@ exports[`App when the data is being fetched should show loading screen 1`] = `
   <SearchBar
     onQueryChange={[Function]}
   />
-  <CharactersGrid
-    characters={Array []}
-    onToggleBookmark={[Function]}
-  />
   
 </div>
 `;
