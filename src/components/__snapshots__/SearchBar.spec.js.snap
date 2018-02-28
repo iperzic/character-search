@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should show an input for query 1`] = `
+<div
+  className="SearchBar"
+>
+  <input
+    className="SearchBar__input"
+    onChange={[Function]}
+    placeholder="Search Characters"
+    type="search"
+  />
+</div>
+`;
