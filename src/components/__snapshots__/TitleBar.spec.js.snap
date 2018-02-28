@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TitleBar should show provided text 1`] = `
+<div
+  className="TitleBar"
+>
+  <b>
+    some text
+  </b>
+</div>
+`;
