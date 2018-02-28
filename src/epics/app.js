@@ -13,3 +13,10 @@ export const searchCharacterEpic = (actions$) =>
         .map(appActions.returnResult)
         .catch(appActions.catchError))
     );
+
+export const changePageEpic = (actions$, store) =>
+  actions$.ofType(appTypes.CHANGE_PAGE)
+    .switchMap(action => ajax.getJSON(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${store.getState().app.searchValue}&offset=${action.payload.offset}orderBy=name&apikey=1ce341e7e5ba09cd56cacb4b3ca1b9ba`)
+      .map(appActions.returnResult)
+      .catch(appActions.catchError)
+    );

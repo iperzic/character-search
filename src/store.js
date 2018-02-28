@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 import reducers from './reducers/';
-import { searchCharacterEpic } from './epics/app';
+import { searchCharacterEpic, changePageEpic } from './epics/app';
 
 import localStorageMiddleware from './middleware/localStorage';
 
-const epicMiddleware = createEpicMiddleware(searchCharacterEpic);
+const epicMiddleware = createEpicMiddleware(combineEpics(searchCharacterEpic, changePageEpic));
 
 const loadState = (key) => {
   try {
