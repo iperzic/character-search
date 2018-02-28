@@ -5,6 +5,7 @@ import './App.css';
 
 import SearchBar from '../components/SearchBar';
 import CharactersGrid from '../components/CharactersGrid';
+import Pagination from '../components/Pagination';
 
 import * as appActions from '../actions/app';
 
@@ -19,11 +20,13 @@ const mapStateToProps = state => ({
   })),
   searchValue: state.app.searchValue,
   error: state.app.error,
+  metadata: state.metadata,
 });
 
 const mapDispatchToProps = dispatch => ({
   searchCharacter: value => dispatch(appActions.searchCharacter(value)),
   toggleCharacterBookmark: id => dispatch(appActions.toggleCharacterBookmark(id)),
+  changePage: offset => dispatch(appActions.changePage(offset)),
 });
 
 class App extends Component {
@@ -32,6 +35,7 @@ class App extends Component {
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleToggleBookmark = this.handleToggleBookmark.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   handleQueryChange(event) {
@@ -43,6 +47,10 @@ class App extends Component {
     this.props.toggleCharacterBookmark(id);
   }
 
+  handlePageChange(offset) {
+    this.props.changePage(offset);
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,6 +60,7 @@ class App extends Component {
           characters={this.props.searchValue ? this.props.characters : this.props.bookmarks}
           onToggleBookmark={this.handleToggleBookmark}
         />}
+        <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />
         {this.props.error && 'An error has occurred'}
       </div>
     );
