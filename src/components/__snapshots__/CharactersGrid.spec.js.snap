@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharactersGrid should display all provided characters 1`] = `
+<div
+  className="CharactersGrid"
+>
+  <GridCharacter
+    image="http://fictional-character-1-url"
+    isBookmark={false}
+    name="Fictional character 1"
+    onBookmarkClick={[Function]}
+  />
+  <GridCharacter
+    image="http://fictional-character-2-url"
+    isBookmark={false}
+    name="Fictional character 2"
+    onBookmarkClick={[Function]}
+  />
+  <GridCharacter
+    image="http://fictional-character-3-url"
+    isBookmark={false}
+    name="Fictional character 3"
+    onBookmarkClick={[Function]}
+  />
+</div>
+`;
