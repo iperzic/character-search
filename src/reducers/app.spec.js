@@ -20,7 +20,7 @@ describe('app reducer', () => {
       type: appTypes.SEARCH_VALUE_CHANGED,
       payload: { value },
     };
-    const expectedState = TestStore.createAppStore(value);
+    const expectedState = TestStore.createAppStore(value, undefined, true);
 
     const state = appReducer(undefined, action);
 

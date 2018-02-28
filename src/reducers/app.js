@@ -12,6 +12,7 @@ export default (state = defaultState, action) => {
       return ({
         ...state,
         searchValue: action.payload.value,
+        loading: !!action.payload.value,
       });
     case appTypes.SEARCH_RESULTS_FULFILLED:
       return ({
