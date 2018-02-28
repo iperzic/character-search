@@ -2,11 +2,7 @@ class TestStore {
   static createFreshStore() {
     return ({
       app: TestStore.createAppStore(),
-      characters: {
-        byId: {},
-        search: [],
-        bookmarks: [],
-      },
+      characters: TestStore.createCharacterStore(),
       metadata: TestStore.createMetadataStore(),
     });
   }
@@ -15,6 +11,14 @@ class TestStore {
     return ({
       searchValue,
       error,
+    });
+  }
+
+  static createCharacterStore(byId = {}, search = [], bookmarks = []) {
+    return ({
+      byId,
+      search,
+      bookmarks,
     });
   }
 
