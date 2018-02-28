@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridCharacter when the character is bookmarked should display that the character is bookmarked 1`] = `
+<div
+  className="GridCharacter"
+>
+  <img
+    alt="Deadpool"
+    className="GridCharacter__image"
+    src="http://some-deadpool-image"
+  />
+  <h2
+    className="GridCharacter__name"
+    title="Deadpool"
+  >
+    Deadpool
+  </h2>
+  <span
+    className="GridCharacter__bookmark bookmark--selected"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`GridCharacter when the character is not bookmarked should display that the character is not bookmarked 1`] = `
+<div
+  className="GridCharacter"
+>
+  <img
+    alt="Deadpool"
+    className="GridCharacter__image"
+    src="http://some-deadpool-image"
+  />
+  <h2
+    className="GridCharacter__name"
+    title="Deadpool"
+  >
+    Deadpool
+  </h2>
+  <span
+    className="GridCharacter__bookmark bookmark--not-selected"
+    onClick={[Function]}
+  />
+</div>
+`;
