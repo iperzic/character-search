@@ -24,7 +24,3 @@ export const changePage = offset => ({
   type: appTypes.CHANGE_PAGE,
   payload: { offset },
 });
-
-export const requestCharacters = () => ({
-  type: appTypes.CHARACTERS_REQUESTED,
-});

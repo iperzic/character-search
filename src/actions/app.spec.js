@@ -71,14 +71,4 @@ describe('actions', () => {
       expect(actions.changePage(offset)).toMatchObject(expectedAction);
     });
   });
-
-  describe('#requestCharacters()', () => {
-    it('should fetch api', () => {
-      const expectedAction = {
-        type: appTypes.CHARACTERS_REQUESTED,
-      };
-
-      expect(actions.requestCharacters()).toMatchObject(expectedAction);
-    });
-  });
 });

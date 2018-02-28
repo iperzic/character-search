@@ -25,11 +25,6 @@ export default (state = defaultState, action) => {
         error: action.payload.error,
         loading: false,
       });
-    case appTypes.CHARACTERS_REQUESTED:
-      return ({
-        ...state,
-        loading: true,
-      });
     case appTypes.CHANGE_PAGE:
       return ({
         ...state,
