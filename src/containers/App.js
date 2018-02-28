@@ -54,14 +54,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {!this.props.error && <SearchBar onQueryChange={this.handleQueryChange} />}
-        {!this.props.error &&
+        <SearchBar onQueryChange={this.handleQueryChange} />
         <CharactersGrid
           characters={this.props.searchValue ? this.props.characters : this.props.bookmarks}
           onToggleBookmark={this.handleToggleBookmark}
-        />}
-        <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />
-        {this.props.error && 'An error has occurred'}
+        />
+        {this.props.searchValue && <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />}
       </div>
     );
   }
