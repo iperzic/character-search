@@ -26,8 +26,17 @@ const loadState = (key) => {
   }
 };
 
+const saveState = (key, value) => {
+  try {
+    const serializedValue = JSON.stringify(value);
+    localStorage.setItem(key, serializedValue);
+  } catch (e) {
+    console.error('Failed to save state to local storage');
+  }
+};
+
 export default createStore(
   reducers,
   { characters: loadState('characters') },
-  applyMiddleware(localStorageMiddleware, epicMiddleware)
+  applyMiddleware(localStorageMiddleware(saveState), epicMiddleware)
 );
