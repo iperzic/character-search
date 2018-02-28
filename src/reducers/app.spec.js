@@ -27,6 +27,17 @@ describe('app reducer', () => {
     expect(state).toEqual(expectedState);
   });
 
+  it('should handle SEARCH_RESULTS_FULFILLED', () => {
+    const action = {
+      type: appTypes.SEARCH_RESULTS_FULFILLED
+    };
+    const expectedState = TestStore.createAppStore(undefined, undefined, false);
+
+    const state = appReducer(undefined, action);
+
+    expect(state).toEqual(expectedState);
+  });
+
   it('should handle SEARCH_RESULTS_ERRORED', () => {
     const error = 'some error';
     const action = {
@@ -34,6 +45,17 @@ describe('app reducer', () => {
       payload: { error },
     };
     const expectedState = TestStore.createAppStore(undefined, error);
+
+    const state = appReducer(undefined, action);
+
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle CHARACTERS_REQUESTED', () => {
+    const action = {
+      type: appTypes.CHARACTERS_REQUESTED
+    };
+    const expectedState = TestStore.createAppStore(undefined, undefined, true);
 
     const state = appReducer(undefined, action);
 

@@ -7,10 +7,11 @@ class TestStore {
     });
   }
 
-  static createAppStore(searchValue = '', error = '') {
+  static createAppStore(searchValue = '', error = '', loading = false) {
     return ({
       searchValue,
       error,
+      loading,
     });
   }
 
