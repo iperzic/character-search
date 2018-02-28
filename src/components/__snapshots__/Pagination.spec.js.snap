@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should show disabled next page and disabled previous page buttons 1`] = `
+<div
+  className="Pagination"
+>
+  <div
+    className="Pagination__arrow arrow--previous arrow--disabled"
+    onClick={[Function]}
+    title="Previous Page"
+  />
+  <div
+    className="Pagination__arrow arrow--next arrow--disabled"
+    onClick={[Function]}
+    title="Next Page"
+  />
+</div>
+`;
+
+exports[`Pagination should show disabled next page and previous page buttons 1`] = `
+<div
+  className="Pagination"
+>
+  <div
+    className="Pagination__arrow arrow--previous"
+    onClick={[Function]}
+    title="Previous Page"
+  />
+  <div
+    className="Pagination__arrow arrow--next arrow--disabled"
+    onClick={[Function]}
+    title="Next Page"
+  />
+</div>
+`;
+
+exports[`Pagination should show next page and disabled previous page buttons 1`] = `
+<div
+  className="Pagination"
+>
+  <div
+    className="Pagination__arrow arrow--previous arrow--disabled"
+    onClick={[Function]}
+    title="Previous Page"
+  />
+  <div
+    className="Pagination__arrow arrow--next"
+    onClick={[Function]}
+    title="Next Page"
+  />
+</div>
+`;
+
+exports[`Pagination should show next page and previous page buttons 1`] = `
+<div
+  className="Pagination"
+>
+  <div
+    className="Pagination__arrow arrow--previous"
+    onClick={[Function]}
+    title="Previous Page"
+  />
+  <div
+    className="Pagination__arrow arrow--next"
+    onClick={[Function]}
+    title="Next Page"
+  />
+</div>
+`;
