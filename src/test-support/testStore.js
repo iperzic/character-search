@@ -19,6 +19,14 @@ class TestStore {
       error,
     });
   }
+
+  static createMetadataStore(offset = 0, count = 0, total = 0) {
+    return ({
+      count,
+      offset,
+      total,
+    });
+  }
 }
 
 export default TestStore;
