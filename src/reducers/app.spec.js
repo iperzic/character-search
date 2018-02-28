@@ -4,12 +4,12 @@ import * as appTypes from '../actions/app.const';
 import TestStore from '../test-support/testStore';
 
 describe('app reducer', () => {
-  let expectedDefaultState = TestStore.createAppStore();
-
   it('should return the initial state', () => {
     const action = undefined;
 
     const state = appReducer(action, {});
+
+    const expectedDefaultState = TestStore.createAppStore();
 
     expect(state).toEqual(expectedDefaultState);
   });
@@ -20,11 +20,11 @@ describe('app reducer', () => {
       type: appTypes.SEARCH_VALUE_CHANGED,
       payload: { value },
     };
-    expectedDefaultState = TestStore.createAppStore(value);
+    const expectedState = TestStore.createAppStore(value);
 
     const state = appReducer(undefined, action);
 
-    expect(state).toEqual(expectedDefaultState);
+    expect(state).toEqual(expectedState);
   });
 
   it('should handle SEARCH_RESULTS_ERRORED', () => {
@@ -33,10 +33,10 @@ describe('app reducer', () => {
       type: appTypes.SEARCH_RESULTS_ERRORED,
       payload: { error },
     };
-    expectedDefaultState = TestStore.createAppStore(undefined, error);
+    const expectedState = TestStore.createAppStore(undefined, error);
 
     const state = appReducer(undefined, action);
 
-    expect(state).toEqual(expectedDefaultState);
+    expect(state).toEqual(expectedState);
   });
 });
