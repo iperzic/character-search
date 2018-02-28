@@ -19,3 +19,8 @@ export const toggleCharacterBookmark = id => ({
   type: appTypes.CHARACTER_BOOKMARK,
   payload: { id },
 });
+
+export const changePage = offset => ({
+  type: appTypes.CHANGE_PAGE,
+  payload: { offset },
+});
