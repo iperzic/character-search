@@ -1,0 +1,24 @@
+.Pagination__arrow {
+    display: inline;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px red;
+    font-size: 22px;
+    padding: 8px;
+}
+
+.Pagination__arrow:hover {
+    opacity: 0.7;
+}
+
+.arrow--next:after {
+    content: '►';
+}
+
+.arrow--previous:after {
+    content: '◄';
+}
+
+.arrow--disabled, .arrow--disabled:hover {
+    opacity: 0.4;
+    cursor: initial;
+}
