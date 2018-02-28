@@ -19,6 +19,9 @@ exports[`App when the search query is set should show search input and grid with
   <SearchBar
     onQueryChange={[Function]}
   />
+  <TitleBar
+    text="Showing 1 - 1 out of 1"
+  />
   <CharactersGrid
     characters={
       Array [
@@ -35,9 +38,9 @@ exports[`App when the search query is set should show search input and grid with
   <Pagination
     metadata={
       Object {
-        "count": 0,
+        "count": 1,
         "offset": 0,
-        "total": 0,
+        "total": 1,
       }
     }
     onPageChange={[Function]}
@@ -51,6 +54,9 @@ exports[`App when the there is no search query and bookmarks exist should show e
 >
   <SearchBar
     onQueryChange={[Function]}
+  />
+  <TitleBar
+    text=""
   />
   <CharactersGrid
     characters={
@@ -75,6 +81,9 @@ exports[`App when the there is no search query and there is no bookmarks should 
 >
   <SearchBar
     onQueryChange={[Function]}
+  />
+  <TitleBar
+    text="No favourites saved"
   />
   <CharactersGrid
     characters={Array []}

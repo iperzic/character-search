@@ -4,8 +4,6 @@ exports[`TitleBar should show provided text 1`] = `
 <div
   className="TitleBar"
 >
-  <b>
-    some text
-  </b>
+  some text
 </div>
 `;

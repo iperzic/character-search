@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 import Loading from '../components/Loading';
 
 import * as appActions from '../actions/app';
+import TitleBar from "../components/TitleBar";
 
 const mapStateToProps = state => ({
   characters: state.characters.search.map(c => ({
@@ -38,6 +39,7 @@ class App extends Component {
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleToggleBookmark = this.handleToggleBookmark.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.getTitleText = this.getTitleText.bind(this);
   }
 
   handleQueryChange(event) {
@@ -53,15 +55,32 @@ class App extends Component {
     this.props.changePage(offset);
   }
 
+  getTitleText() {
+    let text = '';
+
+    if (!this.props.bookmarks.length && !this.props.searchValue) {
+      text = 'No favourites saved'
+    } else if (!this.props.characters.length && this.props.searchValue) {
+      text = 'No results';
+    } else if (this.props.characters.length && this.props.searchValue) {
+      const start = this.props.metadata.offset + 1;
+      text = `Showing ${start} - ${start - 1 + this.props.metadata.count} out of ${this.props.metadata.total}`;
+    }
+
+    return text;
+  }
+
   render() {
     const isLoading = this.props.loading;
     const shouldPaginationDisplay = this.props.searchValue && !isLoading;
+    const characters = this.props.searchValue ? this.props.characters : this.props.bookmarks;
     return (
       <div className="App">
         {isLoading && <Loading />}
         <SearchBar onQueryChange={this.handleQueryChange} />
+        {!isLoading && <TitleBar text={this.getTitleText()} />}
         {!isLoading && <CharactersGrid
-          characters={this.props.searchValue ? this.props.characters : this.props.bookmarks}
+          characters={characters}
           onToggleBookmark={this.handleToggleBookmark}
         />}
         {shouldPaginationDisplay && <Pagination metadata={this.props.metadata} onPageChange={this.handlePageChange} />}

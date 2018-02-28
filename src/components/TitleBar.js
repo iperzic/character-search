@@ -5,7 +5,7 @@ import './TitleBar.css';
 
 const TitleBar = ({ text }) => (
   <div className="TitleBar">
-    <b>{text}</b>
+    {text}
   </div>
 );
 

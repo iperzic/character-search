@@ -45,7 +45,7 @@ describe('App', () => {
       const id = 123;
       const byId = { [id]: { id, name: 'Deadpool', image: 'some-image.jpg' } };
       const characters = testStore.createCharacterStore(byId, [id]);
-      const metadata = testStore.createMetadataStore();
+      const metadata = testStore.createMetadataStore(0, 1, 1);
       const app = testStore.createAppStore('Deadpool');
       store = configureStore()({ characters, metadata, app });
     });
