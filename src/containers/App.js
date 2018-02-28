@@ -6,6 +6,7 @@ import './App.css';
 import SearchBar from '../components/SearchBar';
 import CharactersGrid from '../components/CharactersGrid';
 import Pagination from '../components/Pagination';
+import Loading from '../components/Loading';
 
 import * as appActions from '../actions/app';
 
@@ -21,6 +22,7 @@ const mapStateToProps = state => ({
   searchValue: state.app.searchValue,
   error: state.app.error,
   metadata: state.metadata,
+  loading: state.app.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -54,6 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.props.loading && <Loading />}
         <SearchBar onQueryChange={this.handleQueryChange} />
         <CharactersGrid
           characters={this.props.searchValue ? this.props.characters : this.props.bookmarks}

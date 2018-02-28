@@ -61,4 +61,15 @@ describe('app reducer', () => {
 
     expect(state).toEqual(expectedState);
   });
+
+  it('should handle CHANGE_PAGE', () => {
+    const action = {
+      type: appTypes.CHANGE_PAGE
+    };
+    const expectedState = TestStore.createAppStore(undefined, undefined, true);
+
+    const state = appReducer(undefined, action);
+
+    expect(state).toEqual(expectedState);
+  });
 });

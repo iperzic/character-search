@@ -29,6 +29,11 @@ export default (state = defaultState, action) => {
         ...state,
         loading: true,
       });
+    case appTypes.CHANGE_PAGE:
+      return ({
+        ...state,
+        loading: true,
+      });
     default:
       return state;
   }

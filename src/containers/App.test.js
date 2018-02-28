@@ -55,5 +55,20 @@ describe('App', () => {
 
       expect(appContainer.getElement()).toMatchSnapshot();
     });
+  });
+
+  describe('when the data is being fetched', () => {
+    beforeEach(() => {
+      const characters = testStore.createCharacterStore();
+      const metadata = testStore.createMetadataStore();
+      const app = testStore.createAppStore(undefined, undefined, true);
+      store = configureStore()({ characters, metadata, app });
+    });
+
+    it('should show loading screen', () => {
+      const appContainer = shallow(<App store={store} />).dive();
+
+      expect(appContainer.getElement()).toMatchSnapshot();
+    });
   })
 });

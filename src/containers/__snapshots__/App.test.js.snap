@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App when the data is being fetched should show loading screen 1`] = `
+<div
+  className="App"
+>
+  <Loading />
+  <SearchBar
+    onQueryChange={[Function]}
+  />
+  <CharactersGrid
+    characters={Array []}
+    onToggleBookmark={[Function]}
+  />
+  
+</div>
+`;
+
 exports[`App when the search query is set should show search input and grid with fetched characters 1`] = `
 <div
   className="App"
