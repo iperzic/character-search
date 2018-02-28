@@ -1,21 +1,19 @@
 class TestStore {
-  static createDefaultAppStore() {
+  static createFreshStore() {
     return ({
-      searchValue: '',
-      error: '',
+      app: TestStore.createAppStore(),
+      characters: {
+        byId: {},
+        search: [],
+        bookmarks: [],
+      },
+      metadata: TestStore.createMetadataStore(),
     });
   }
 
-  static createQueriedAppStore(value) {
+  static createAppStore(searchValue = '', error = '') {
     return ({
-      searchValue: value,
-      error: '',
-    });
-  }
-
-  static createErroredAppStore(error) {
-    return ({
-      searchValue: '',
+      searchValue,
       error,
     });
   }
