@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import './Pagination.css';
 
 const Pagination = ({ metadata, onPageChange }) => {
-  const isLastPage = metadata.offset + 20 > metadata.total;
-  const isFirstPage = metadata.offset - 20 < 0;
+  const defaultOffset = 20;
+  const isLastPage = metadata.offset + defaultOffset >= metadata.total;
+  const isFirstPage = metadata.offset - defaultOffset < 0;
   return (
     <div className="Pagination">
-      <div className={`Pagination__arrow arrow--previous ${isFirstPage ? 'arrow--disabled' : ''}`}
-           onClick={() => !isFirstPage && onPageChange(metadata.offset - 20)}
+      <div className={`Pagination__arrow arrow--previous${isFirstPage ? ' arrow--disabled' : ''}`}
+           onClick={() => !isFirstPage && onPageChange(metadata.offset - defaultOffset)}
            title="Previous Page"
       />
-      <div className={`Pagination__arrow arrow--next ${isLastPage ? 'arrow--disabled' : ''}`}
-           onClick={() => !isLastPage && onPageChange(metadata.offset + 20)}
+      <div className={`Pagination__arrow arrow--next${isLastPage ? ' arrow--disabled' : ''}`}
+           onClick={() => !isLastPage && onPageChange(metadata.offset + defaultOffset)}
            title="Next Page"
       />
     </div>
