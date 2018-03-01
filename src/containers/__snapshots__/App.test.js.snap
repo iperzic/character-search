@@ -56,7 +56,7 @@ exports[`App when the there is no search query and bookmarks exist should show e
     onQueryChange={[Function]}
   />
   <TitleBar
-    text=""
+    text="Saved characters:"
   />
   <CharactersGrid
     characters={
@@ -83,7 +83,7 @@ exports[`App when the there is no search query and there is no bookmarks should 
     onQueryChange={[Function]}
   />
   <TitleBar
-    text="No favourites saved"
+    text="No characters saved"
   />
   <CharactersGrid
     characters={Array []}

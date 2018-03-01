@@ -59,12 +59,14 @@ class App extends Component {
     let text = '';
 
     if (!this.props.bookmarks.length && !this.props.searchValue) {
-      text = 'No favourites saved'
+      text = 'No characters saved'
     } else if (!this.props.characters.length && this.props.searchValue) {
       text = 'No results';
     } else if (this.props.characters.length && this.props.searchValue) {
       const start = this.props.metadata.offset + 1;
       text = `Showing ${start} - ${start - 1 + this.props.metadata.count} out of ${this.props.metadata.total}`;
+    } else if (this.props.bookmarks.length) {
+      text = `Saved characters:`;
     }
 
     return text;
