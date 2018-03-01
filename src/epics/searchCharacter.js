@@ -8,11 +8,17 @@ import * as appTypes from '../actions/app.const';
 import * as appActions from '../actions/app';
 import { of } from "rxjs/observable/of";
 
-const searchCharacterEpic = (actions$, store, { getJSON }) =>
+const searchCharacterEpic = (actions$, store, { ajax }) =>
   actions$.ofType(appTypes.SEARCH_VALUE_CHANGED)
     .debounceTime(500)
     .switchMap(action =>
-      _if(() => action.payload.value, getJSON(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${action.payload.value}&orderBy=name&apikey=1ce341e7e5ba09cd56cacb4b3ca1b9ba`)
+      _if(() => action.payload.value, ajax({
+        url: `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${action.payload.value}&orderBy=name&apikey=1ce341e7e5ba09cd56cacb4b3ca1b9ba`,
+        crossDomain: true,
+        createXHR: function () {
+          return new XMLHttpRequest();
+        }
+      })
         .map(appActions.returnResult)
         .catch((err) => of(appActions.catchError(err))))
     );

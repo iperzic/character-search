@@ -7,7 +7,7 @@ export const searchCharacter = value => ({
 
 export const returnResult = result => ({
   type: appTypes.SEARCH_RESULTS_FULFILLED,
-  payload: { data: result.data },
+  payload: { data: result.response.data },
 });
 
 export const catchError = error => ({

@@ -11,7 +11,7 @@ import localStorageMiddleware from './middleware/localStorage';
 const rootEpic = (...args) => combineEpics(
   searchCharacterEpic,
   changePageEpic,
-)(...args, { getJSON: ajax.getJSON });
+)(...args, { ajax });
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 

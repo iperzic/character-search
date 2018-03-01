@@ -18,11 +18,11 @@ describe('actions', () => {
 
   describe('#returnResult(result)', () => {
     it('should return data fetched', () => {
-      const data = { data: {} };
+      const data = { response: { data: {} } };
       const expectedAction = {
         type: appTypes.SEARCH_RESULTS_FULFILLED,
         payload: {
-          data: data.data,
+          data: data.response.data,
         },
       };
 
